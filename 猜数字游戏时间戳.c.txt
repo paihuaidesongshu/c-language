@@ -1,0 +1,61 @@
+#include <stdlib.h>
+#include <time.h>
+void game()
+{
+	int guess = 0;
+	int set = rand() % 100 + 1;//1-100的随机数
+	//1.生成随机数
+	//rand()生成1-7fff的随机数
+	//拿时间戳设置随机数的生成起点
+	//time函数
+	//printf("%d\n", set);
+	//2.猜数字
+	while (1)
+	{
+		printf("请猜");
+		scanf("%d", &guess);
+		if (guess > set)
+		{
+			printf("猜大了\n");
+		}
+		else if (guess < set);
+		{
+			printf("猜小了\n");
+		}
+		else
+		{
+			printf("right\n");
+			break;
+		}
+	}
+}
+void menu()
+{
+	printf("********************************************\n");
+	printf("*******1 play 0 exit***********************\n ");
+}
+int main()
+{
+	srand((unsigned int)time(NULL));
+	int input = 0;
+	do
+	{
+		menu();
+		printf("请选择：");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();//猜数字游戏
+			break;
+		case 2:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("选择错误\n");
+			break;
+		}
+	}
+		while (input);
+	return 0;
+}
